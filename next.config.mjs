@@ -8,13 +8,16 @@ const nextConfig = {
     unoptimized: true,
   },
 
+  // GitHub Pagesのサブディレクトリ (/リポジトリ名/) に対応させるための設定
+  // ローカル開発時(npm run dev)はルート(/)で、ビルド時(Production)は /official-club-page になります。
+  // Organization: Aviation-Club-KadokawaDwango, Repo: official-club-page
+  basePath: process.env.NODE_ENV === 'production' ? '/official-club-page' : '',
+
+  // URLの末尾にスラッシュを付ける設定 (/about -> /about/)
+  // これにより /about/index.html が生成され、GitHub Pagesでのリンク切れを防ぎます。
+  trailingSlash: true,
+
   reactStrictMode: true,
-
-  // 【重要】GitHubのリポジトリ名がURLに含まれる場合（例: https://username.github.io/repo-name/）
-  // 以下のbasePathのコメントアウトを外し、リポジトリ名を設定してください。
-  // カスタムドメインを使用する場合や、ユーザーサイト(username.github.io)の場合は設定不要です。
-
-  // basePath: '/official-page',
 };
 
 export default nextConfig;

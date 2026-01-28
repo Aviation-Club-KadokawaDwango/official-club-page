@@ -1,26 +1,22 @@
 import { CheckCircle2, ArrowRight, AlertCircle, FileText, Send, Users } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { BackgroundDecoration } from "@/components/ui/background-decoration";
+import { GlassCard } from "@/components/ui/glass-card";
 
 export default function Join() {
   return (
     <div className="bg-white dark:bg-zinc-950 isolate min-h-screen">
-       <div
-        className="absolute inset-x-0 top-0 -z-10 h-[500px] overflow-hidden blur-3xl"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#9089fc] to-[#ff80b5] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
+       <BackgroundDecoration
+          flip
+          colorFrom="from-[#9089fc]"
+          colorTo="to-[#ff80b5]"
+          className="top-0"
+       />
 
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-blue-600">Recruitment 2024</h2>
+          <h2 className="text-base font-semibold leading-7 text-blue-600">Recruitment 2026</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-6xl">
             Join the Crew
           </p>
@@ -61,7 +57,10 @@ export default function Join() {
                  </div>
 
                  {/* Deadline Warning */}
-                 <div className="relative overflow-hidden rounded-3xl bg-amber-50 p-8 ring-1 ring-amber-200 dark:bg-amber-900/10 dark:ring-amber-500/20">
+                 <GlassCard
+                    accentColor="bg-amber-500"
+                    className="bg-amber-50/50 dark:bg-amber-900/10 ring-1 ring-amber-200 dark:ring-amber-500/20"
+                 >
                      <div className="flex items-center gap-4 mb-4">
                          <AlertCircle className="h-8 w-8 text-amber-600 dark:text-amber-500" />
                          <h3 className="text-xl font-bold text-amber-900 dark:text-amber-500">重要な日程</h3>
@@ -80,7 +79,7 @@ export default function Join() {
                              <dd className="text-amber-700 dark:text-amber-300">2026年4月30日</dd>
                          </div>
                      </dl>
-                 </div>
+                 </GlassCard>
             </div>
         </div>
 
@@ -95,7 +94,7 @@ export default function Join() {
                     { title: "2. 面接", desc: "書類選考通過者は、先輩部員とのグループ面接に進みます。", icon: Users },
                     { title: "3. オリエンテーション", desc: "合格後は必修の安全講習とオリエンテーションに参加します。", icon: Send }
                 ].map((step, idx) => (
-                    <div key={idx} className="relative flex flex-col items-center p-8 text-center rounded-3xl border border-zinc-200 bg-white/50 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/50">
+                    <GlassCard key={idx} className="flex flex-col items-center p-8 text-center" hoverEffect>
                          <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800">
                              <step.icon className="h-6 w-6 text-zinc-600 dark:text-zinc-400" />
                          </div>
@@ -107,7 +106,7 @@ export default function Join() {
                                  <ArrowRight className="w-8 h-8" />
                              </div>
                          )}
-                    </div>
+                    </GlassCard>
                 ))}
             </div>
         </div>

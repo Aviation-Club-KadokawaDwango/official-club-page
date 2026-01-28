@@ -1,23 +1,13 @@
-import { Plane, Users, Award, History } from "lucide-react";
-import Image from "next/image";
+import { Plane, Users, Award } from "lucide-react";
+import { BackgroundDecoration } from "@/components/ui/background-decoration";
+import { GlassCard } from "@/components/ui/glass-card";
 
 export default function About() {
   return (
     <div className="bg-white dark:bg-zinc-950">
       {/* Hero Section */}
       <div className="relative isolate overflow-hidden pt-14">
-         <div
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-blue-200 to-blue-600 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
+        <BackgroundDecoration />
 
         <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -62,14 +52,13 @@ export default function About() {
                     icon: Users,
                 },
             ].map((item) => (
-                <div key={item.title} className="group relative overflow-hidden rounded-3xl border border-zinc-200 bg-white/70 p-8 shadow-xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/70 hover:-translate-y-1 transition-transform duration-300">
-                     <div className="absolute top-0 left-0 h-1 w-full bg-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                <GlassCard key={item.title}>
                      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
                         <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
                      </div>
                     <h3 className="text-lg font-semibold leading-8 text-zinc-900 dark:text-zinc-50">{item.title}</h3>
                     <p className="text-base leading-7 text-zinc-600 dark:text-zinc-400">{item.description}</p>
-                </div>
+                </GlassCard>
             ))}
         </div>
       </div>
